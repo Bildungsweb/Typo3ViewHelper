@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Robert Katzki <robert@bildungsweb.net>, Bildungsweb Media GmbH
+ *  (c) 2011 Robert Katzki <robert@katzki.de>
  *  
  *  All rights reserved
  *
