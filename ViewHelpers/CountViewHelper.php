@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Robert Katzki <robert@bildungsweb.net>
+ *  (c) 2011 Robert Katzki <robert@katzki.de>
  *  
  *  All rights reserved
  *
@@ -44,10 +44,10 @@
  * 
  * This will output 1, depending on the Object.
  * 
- * @package bweb_be
+ * @package bweb_fe
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  */
-class Tx_BwebBe_ViewHelpers_CountViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class Tx_BwebFe_ViewHelpers_CountViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
 	 * Counts the items of a given property and the passed arguments.
@@ -57,6 +57,7 @@ class Tx_BwebBe_ViewHelpers_CountViewHelper extends Tx_Fluid_Core_ViewHelper_Abs
 	 * @param string $operator The operator to limit the count
 	 * @param string $value The value to match with the operator
 	 * @return integer The number of elements
+	 * @author Robert Katzki <robert@bildungsweb.net>
 	 */
 	public function render($subject = NULL, $property = NULL, $operator = NULL, $value = NULL) {
 		if ($subject === NULL) {
@@ -82,6 +83,7 @@ class Tx_BwebBe_ViewHelpers_CountViewHelper extends Tx_Fluid_Core_ViewHelper_Abs
 
 		foreach ($subject as $subjectPart) {
 			if (is_object($subjectPart)) {
+				// Calls getProperty on the object
 				$subjectPartProperty 	= call_user_func_array( array($subjectPart, 'get' . ucfirst($property)), array());
 			} else {
 				$subjectPartProperty 	= $subjectPart[$property];
@@ -108,4 +110,3 @@ class Tx_BwebBe_ViewHelpers_CountViewHelper extends Tx_Fluid_Core_ViewHelper_Abs
 }
 
 ?>
-

@@ -3,8 +3,8 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Robert Katzki <robert@bildungsweb.net>, Bildungsweb Media GmbH
- *  
+ *  (c) 2011 Christian Hansen <christian@bildungsweb.net>
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -24,22 +24,23 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
 /**
- *
- *
+ * 
  * @package bweb_fe
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
- *
  */
-class Tx_BwebFe_ViewHelpers_KeepViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class Tx_BwebFe_ViewHelpers_ImplodeViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+
 	/**
-	 * Leaves the content in between untouched.
+	 * glue array with string to glued string
 	 *
-	 * @return string The untouched content
+	 * @param string $glue string to glue pieces with
+	 * @param array $pieces array to be converted in glued string
+	 * @return boolean
 	 */
-	public function render() {
-		return $this->renderChildren();
+	public function render($glue = NULL, $pieces = NULL) {
+		$gluedstring = implode($glue, $pieces);
+		return $gluedstring;
 	}
 }
 

@@ -32,14 +32,23 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_BwebFe_ViewHelpers_KeepViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class Tx_BwebFe_ViewHelpers_Calculate_IntegerViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 	/**
-	 * Leaves the content in between untouched.
+	 * Check a value being an integer
 	 *
-	 * @return string The untouched content
+	 * @param integer $x The checked value	 
+	 * @validate $x IntegerValidator	 
+	 * @return boolean 
 	 */
-	public function render() {
-		return $this->renderChildren();
+	public function render($x) {
+		// Überprüfe ob ein Komma vorhanden ist. Wenn ja gib TRUE zurück. Wir wollen nur Zahlen ohne Komma.
+		if(strstr($x, ".")) {
+			$x = TRUE;
+		} else {
+			$x = FALSE;
+		}
+		
+		return $x;
 	}
 }
 
